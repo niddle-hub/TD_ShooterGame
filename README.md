@@ -11,6 +11,8 @@ Basic controls:
 - [2] - Equip Secondary weapon
 - [Left Bracket] - Quick save
 - [Right Bracket] - Quick load
+- [=] - Restart game
+- [ESC] - Exit game
 
 Unreal Engine Version:
 ---------------
