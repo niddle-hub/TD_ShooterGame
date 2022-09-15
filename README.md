@@ -1,5 +1,5 @@
 ## Top-Down Shooter Game
-Designed for 269th lab games softworks
+Designed for "269th Lab Games Softworks"
 
 Basic controls:
 ---------------
