@@ -8,6 +8,8 @@
 
 /** Forward declaration to improve compiling times */
 class UNiagaraSystem;
+class UPlayerHUDWidget;
+class ATD_ShooterGameCharacter;
 
 UCLASS()
 class ATD_ShooterGamePlayerController : public APlayerController
@@ -16,6 +18,10 @@ class ATD_ShooterGamePlayerController : public APlayerController
 
 public:
 	ATD_ShooterGamePlayerController();
+
+	virtual void Tick(float DeltaSeconds) override;
+	virtual void BeginPlay() override;
+	virtual void SetPawn(APawn* InPawn) override;
 
 	/** Time Threshold to know if it was a short press */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
@@ -26,6 +32,8 @@ public:
 	UNiagaraSystem* FXCursor;
 
 protected:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widgets")
+	TSubclassOf<UPlayerHUDWidget> PlayerHUDWidgetClass;
 	/** True if the controlled character should navigate to the mouse cursor. */
 	uint32 bMoveToMouseCursor : 1;
 
@@ -38,9 +46,27 @@ protected:
 	void OnSetDestinationPressed();
 	void OnSetDestinationReleased();
 
+	void EquipPrimaryWeapon();
+	void EquipSecondaryWeapon();
+
+	void InternalStartFire();
+	void InternalStopFire();
+
+	void ReloadWeapon();
+
+	void RotateHitLocation(float DeltaTime);
+
+	void OpenInventory();
+
+	void QuickSaveGame();
+	void QuickLoadGame();
+
 private:
-	bool bInputPressed; // Input is bring pressed
-	float FollowTime; // For how long it has been pressed
+	TSoftObjectPtr<ATD_ShooterGameCharacter> CachedCharacter;
+
+	bool bFireInputPressed = false; // Input is bring pressed
+	bool bMoveInputPressed = false; // Input is bring pressed
+	float MoveFollowTime = 0.f; // For how long it has been pressed
+	void CreateWidgets();
+	UPlayerHUDWidget* PlayerHUDWidget = nullptr;
 };
-
-
