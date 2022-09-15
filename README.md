@@ -15,3 +15,7 @@ Basic controls:
 Unreal Engine Version:
 ---------------
 - 5.0.3
+
+Implemented Features:
+---------------
+ - Top-Down movement
