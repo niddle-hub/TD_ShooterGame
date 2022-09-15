@@ -4,10 +4,7 @@ void UInventoryItem::Initialize(FName InItemID, const FInventoryItemDescription&
 {
 	ItemID = InItemID;
 	ItemDescription.Name = In_ItemDescription.Name;
-	if (In_ItemDescription.Icon.IsValid())
-	{
-		ItemDescription.Icon = In_ItemDescription.Icon.LoadSynchronous();
-	}
+	ItemDescription.Icon = In_ItemDescription.Icon;
 	bIsInitialized = true;
 }
 

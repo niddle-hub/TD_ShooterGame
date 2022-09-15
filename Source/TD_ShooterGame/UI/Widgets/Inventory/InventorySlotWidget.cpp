@@ -31,11 +31,11 @@ void UInventorySlotWidget::Update() const
 	}
 }
 
-void UInventorySlotWidget::SetItemIcon(const TSoftObjectPtr<UTexture2D> In_Icon) const
+void UInventorySlotWidget::SetItemIcon(UTexture2D* In_Icon) const
 {
-	if (In_Icon.IsValid())
+	if (In_Icon)
 	{
-		ItemIcon->SetBrushFromTexture(In_Icon.Get());
+		ItemIcon->SetBrushFromTexture(In_Icon);
 	}
 }
 
@@ -70,10 +70,7 @@ void UInventorySlotWidget::NativeOnDragDetected(const FGeometry& InGeometry, con
 	UDragDropOperation*	DragOperation = UWidgetBlueprintLibrary::CreateDragDropOperation(UDragDropOperation::StaticClass());
 	UInventorySlotWidget* DragWidget = CreateWidget<UInventorySlotWidget>(GetOwningPlayer(), GetClass());
 
-	if (LinkedSlot->ItemInSlot->GetItemDescription().Icon.IsValid())
-	{
-		DragWidget->ItemIcon->SetBrushFromTexture(LinkedSlot->ItemInSlot->GetItemDescription().Icon.Get());
-	}
+	DragWidget->ItemIcon->SetBrushFromTexture(LinkedSlot->ItemInSlot->GetItemDescription().Icon);
 	DragOperation->DefaultDragVisual = DragWidget;
 	DragOperation->Pivot = EDragPivot::MouseDown;
 	DragOperation->Payload = LinkedSlot->ItemInSlot.Get();

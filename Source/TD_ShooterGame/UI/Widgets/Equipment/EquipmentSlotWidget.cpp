@@ -37,10 +37,7 @@ void UEquipmentSlotWidget::Update() const
 	if (LinkedEquipableItem.IsValid())
 	{
 		ImageWeaponIcon->SetOpacity(1.f);
-		if (AdapterLinkedInventoryItem->GetItemDescription().Icon.IsValid())
-		{
-			ImageWeaponIcon->SetBrushFromTexture(AdapterLinkedInventoryItem->GetItemDescription().Icon.Get());
-		}
+		ImageWeaponIcon->SetBrushFromTexture(AdapterLinkedInventoryItem->GetItemDescription().Icon);
 		TextWeaponName->SetText(AdapterLinkedInventoryItem->GetItemDescription().Name);
 	}
 }
@@ -67,11 +64,8 @@ void UEquipmentSlotWidget::NativeOnDragDetected(const FGeometry& InGeometry, con
 
 	UDragDropOperation* DragDropOperation = UWidgetBlueprintLibrary::CreateDragDropOperation(UDragDropOperation::StaticClass());
 	UInventorySlotWidget* DragWidget = CreateWidget<UInventorySlotWidget>(GetOwningPlayer(), DragNDropWidgetClass);
-	if (AdapterLinkedInventoryItem->GetItemDescription().Icon.IsValid())
-	{
-		DragWidget->SetItemIcon(AdapterLinkedInventoryItem->GetItemDescription().Icon.Get());
-	}
 	
+	DragWidget->SetItemIcon(AdapterLinkedInventoryItem->GetItemDescription().Icon);
 	DragDropOperation->DefaultDragVisual = DragWidget;
 	DragDropOperation->Pivot = EDragPivot::CenterCenter;
 	DragDropOperation->Payload = AdapterLinkedInventoryItem.Get();

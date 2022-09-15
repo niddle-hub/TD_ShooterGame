@@ -16,7 +16,7 @@ class TD_SHOOTERGAME_API UInventorySlotWidget : public UUserWidget
 public:
 	void InitializeItemSlot(FInventorySlot& SlotContainer);
 	void Update() const;
-	void SetItemIcon(TSoftObjectPtr<UTexture2D> In_Icon) const;
+	void SetItemIcon(UTexture2D* In_Icon) const;
 
 protected:
 	UPROPERTY(meta=(BindWidget))

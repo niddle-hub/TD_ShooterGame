@@ -7,10 +7,7 @@ void UAttributesComponent::AddHealth(float HealthAmount)
 
 void UAttributesComponent::OnLevelDeserialized_Implementation()
 {
-	if (OnHealthChanged.IsBound())
-	{
-		OnHealthChanged.Broadcast(CurrentHealth);
-	}
+	SetHealth(CurrentHealth);
 }
 
 void UAttributesComponent::BeginPlay()

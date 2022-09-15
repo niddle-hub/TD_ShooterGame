@@ -1,5 +1,6 @@
 ﻿#include "ExplosionComponent.h"
 
+#include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -10,8 +11,6 @@ void UExplosionComponent::Explode(AController* InstigatorController)
 		return;
 	}
 	
-	bIsExploding = true;
-
 	TArray<AActor*> IgnoredActors;
 	IgnoredActors.Add(GetOwner());
 
@@ -41,4 +40,6 @@ void UExplosionComponent::Explode(AController* InstigatorController)
 	{
 		OnExplodeDelegate.Broadcast();
 	}
+	
+	bIsExploding = true;
 }

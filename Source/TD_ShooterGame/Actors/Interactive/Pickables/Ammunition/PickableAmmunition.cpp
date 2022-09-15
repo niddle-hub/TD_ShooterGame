@@ -26,13 +26,9 @@ void APickableAmmunition::BeginPlay()
 		return;
 	}
 
-	const TSoftObjectPtr<UStaticMesh> AmmoMesh = AmmoRow->AmmoMesh;
-	if (AmmoMesh.IsValid())
+	if (UStaticMesh* AmmoMesh = AmmoRow->AmmoMesh; IsValid(AmmoMesh))
 	{
-		if (AmmoMesh.LoadSynchronous())
-		{
-			AmmoMeshComp->SetStaticMesh(AmmoMesh.Get());
-		}
+		AmmoMeshComp->SetStaticMesh(AmmoMesh);
 	}
 	
 	AmmunitionType = AmmoRow->AmmunitionType;

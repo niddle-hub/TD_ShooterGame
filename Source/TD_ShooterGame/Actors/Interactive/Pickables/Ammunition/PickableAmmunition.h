@@ -15,7 +15,7 @@ struct FAmmunitionTableRow : public FTableRowBase
 	EAmmunitionType AmmunitionType;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Ammunition")
-	TSoftObjectPtr<UStaticMesh> AmmoMesh;
+	UStaticMesh* AmmoMesh;
 };
 
 UCLASS(Blueprintable)
@@ -39,7 +39,6 @@ protected:
 	int32 AmmunitionAmount;
 
 private:
-	TSoftObjectPtr<UStaticMesh> LoadedMesh;
 	EAmmunitionType AmmunitionType = EAmmunitionType::AT_None;
 	
 };

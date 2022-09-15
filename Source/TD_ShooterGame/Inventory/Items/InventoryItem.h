@@ -18,7 +18,7 @@ struct FInventoryItemDescription : public FTableRowBase
 	FText Name;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Item")
-	TSoftObjectPtr<UTexture2D> Icon;
+	UTexture2D* Icon;
 };
 
 USTRUCT(BlueprintType)
