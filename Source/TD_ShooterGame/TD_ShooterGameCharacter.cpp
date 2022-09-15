@@ -210,7 +210,6 @@ void ATD_ShooterGameCharacter::OnDeath()
 		StopFire();
 		GetMesh()->GetAnimInstance()->StopAllMontages(0.f);
 		CloseUI();
-		PlayerController->SetInputMode(FInputModeUIOnly());
 		PlayAnimMontage(OnDeathAnimMontage);
 	}
 }
