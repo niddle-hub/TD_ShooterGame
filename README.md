@@ -10,7 +10,7 @@ Basic controls:
 - [1] - Equip Primary weapon
 - [2] - Equip Secondary weapon
 - [Left Bracket] - Quick save
-- [Right Bracket] - Quic load
+- [Right Bracket] - Quick load
 
 Unreal Engine Version:
 ---------------
