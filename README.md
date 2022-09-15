@@ -4,9 +4,9 @@
 
 Basic controls:
 ---------------
-- [LMB] - Left Mouse Buttons - Fire / DragNDrop items in inventory
-- [RMB] - Right Mouse Button - Move as set destination / Equip/Consume items from inventory
-- [I] - Open/Close inventory
+- [LMB] - Left Mouse Buttons - Fire / [HOLD] DragNDrop items in inventory
+- [RMB] - Right Mouse Button - Move as set destination / Equip / Consume items from inventory
+- [I] - Open / Close inventory
 - [R] - Reload equipped weapon
 - [1] - Equip Primary weapon
 - [2] - Equip Secondary weapon
