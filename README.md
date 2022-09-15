@@ -21,3 +21,12 @@ Unreal Engine Version:
 Implemented Features:
 ---------------
  - Top-Down movement
+ - Pickable items e.g. Weapons, Ammo, MedKit
+ - Visual inventory
+ - Character equipment
+ - Firing
+ - Firing enemy AI turret
+ - Health/Damage receive/apply
+ - Game saving
+ - Anim montages
+ - Async assets loanding
